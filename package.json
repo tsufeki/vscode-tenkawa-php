@@ -1,0 +1,33 @@
+{
+    "name": "tenkawa-php",
+    "displayName": "Tenkawa PHP",
+    "description": "Autocompletion for PHP",
+    "version": "0.0.1",
+    "publisher": "tsufeki",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "activationEvents": [
+        "onLanguage:php",
+        "workspaceContains:**/*.php"
+    ],
+    "main": "./out/extension",
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "install:composer": "composer install --no-dev --no-interaction --classmap-authoritative",
+        "postinstall": "node ./node_modules/vscode/bin/install"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^3.5.0"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.6",
+        "@types/node": "^7.0.43"
+    }
+}
