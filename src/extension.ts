@@ -11,7 +11,7 @@ export function activate(context: ExtensionContext) {
 
     const serverOptions: ServerOptions = {
         command: phpExecutable,
-        args: [serverExecutable],
+        args: [serverExecutable, '--log=tenkawa.log'],
     };
 
     const clientOptions: LanguageClientOptions = {
