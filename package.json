@@ -2,7 +2,12 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.0.1",
+    "version": "0.0.4",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tsufeki/vscode-tenkawa-php.git"
+    },
     "publisher": "tsufeki",
     "engines": {
         "vscode": "^1.19.0"

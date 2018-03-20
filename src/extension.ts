@@ -11,7 +11,11 @@ export function activate(context: ExtensionContext) {
 
     const serverOptions: ServerOptions = {
         command: phpExecutable,
-        args: [serverExecutable, '--log=' + context.asAbsolutePath('tenkawa.log')],
+        args: [
+            '-dmemory_limit=1024M',
+            serverExecutable,
+            '--log=' + context.asAbsolutePath('tenkawa.log'),
+        ],
     };
 
     const clientOptions: LanguageClientOptions = {
