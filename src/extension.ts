@@ -1,22 +1,42 @@
 'use strict';
 
+import * as net from 'net';
 import * as path from 'path';
+import { spawn } from 'child_process';
 import { ExtensionContext, Disposable } from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind } from 'vscode-languageclient';
+import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, generateRandomPipeName, StreamInfo } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
 
-    let phpExecutable = 'php';
-    let serverExecutable = context.asAbsolutePath(path.join('vendor', 'tsufeki', 'tenkawa-php-language-server', 'bin', 'tenkawa.php'));
+    const phpExecutable = 'php';
+    const serverExecutable = context.asAbsolutePath(path.join('vendor', 'tsufeki', 'tenkawa-php-language-server', 'bin', 'tenkawa.php'));
 
-    const serverOptions: ServerOptions = {
-        command: phpExecutable,
-        args: [
-            '-dmemory_limit=1024M',
-            serverExecutable,
-            '--log=' + context.asAbsolutePath('tenkawa.log'),
-        ],
-    };
+    const serverOptions: ServerOptions = () => new Promise<StreamInfo>((resolve, reject) => {
+        const socketPath = generateRandomPipeName();
+        const server = net.createServer(socket => {
+            server.close();
+            resolve({ reader: socket, writer: socket });
+        });
+
+        server.listen(socketPath, () => {
+            const childProcess = spawn(
+                phpExecutable,
+                [
+                    '-dmemory_limit=1024M',
+                    serverExecutable,
+                    '--socket=' + socketPath,
+                    '--log=' + context.asAbsolutePath('tenkawa.log'),
+                ],
+            );
+
+            childProcess.stderr.on('data', (chunk: Buffer) => {
+                console.error(chunk + '');
+            });
+            childProcess.stdout.on('data', (chunk: Buffer) => {
+                console.log(chunk + '');
+            });
+        });
+    });
 
     const clientOptions: LanguageClientOptions = {
         documentSelector: ['php'],
