@@ -2,13 +2,18 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.0.5",
+    "version": "0.0.6",
     "license": "MIT",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/tsufeki/vscode-tenkawa-php.git"
     },
     "publisher": "tsufeki",
+    "keywords": [
+        "php",
+        "autocompletion",
+        "multi-root ready"
+    ],
     "engines": {
         "vscode": "^1.19.0"
     },
@@ -28,7 +33,7 @@
         "postinstall": "node ./node_modules/vscode/bin/install"
     },
     "dependencies": {
-        "vscode-languageclient": "^3.5.0"
+        "vscode-languageclient": "^4.0.0"
     },
     "devDependencies": {
         "typescript": "^2.6.1",
