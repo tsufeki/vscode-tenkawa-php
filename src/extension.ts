@@ -43,7 +43,6 @@ export function activate(context: ExtensionContext) {
     };
 
     const client = new LanguageClient('Tenkawa PHP', serverOptions, clientOptions);
-
     const disposable = client.start();
     context.subscriptions.push(disposable);
 }
