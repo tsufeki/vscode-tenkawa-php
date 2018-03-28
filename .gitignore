@@ -2,5 +2,7 @@ out
 node_modules
 .vscode-test/
 .vsix
-/vendor/
+/tenkawa-php-language-server/
 /composer.lock
+/*.vsix
+/*.log

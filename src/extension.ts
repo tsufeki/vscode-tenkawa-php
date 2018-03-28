@@ -9,7 +9,9 @@ import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, ge
 export function activate(context: ExtensionContext) {
 
     const phpExecutable = 'php';
-    const serverExecutable = context.asAbsolutePath(path.join('vendor', 'tsufeki', 'tenkawa-php-language-server', 'bin', 'tenkawa.php'));
+    const serverExecutable = context.asAbsolutePath(path.join('tenkawa-php-language-server', 'bin', 'tenkawa.php'));
+    const memoryLimit = '1024M';
+    const logDestination = context.asAbsolutePath('tenkawa-php.log');
 
     const serverOptions: ServerOptions = () => new Promise<StreamInfo>((resolve, reject) => {
         const socketPath = generateRandomPipeName();
@@ -22,10 +24,10 @@ export function activate(context: ExtensionContext) {
             const childProcess = spawn(
                 phpExecutable,
                 [
-                    '-dmemory_limit=1024M',
+                    '-dmemory_limit=' + memoryLimit,
                     serverExecutable,
                     '--socket=' + socketPath,
-                    '--log=' + context.asAbsolutePath('tenkawa.log'),
+                    '--log=' + logDestination,
                 ],
             );
 
