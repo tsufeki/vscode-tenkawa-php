@@ -39,5 +39,21 @@
         "typescript": "^2.6.1",
         "vscode": "^1.1.6",
         "@types/node": "^7.0.43"
+    },
+    "contributes": {
+        "configuration": {
+            "type": "object",
+            "title": "Tenkawa PHP configuration",
+            "properties": {
+                "tenkawaphp.executablePath": {
+                    "type": [
+                        "string",
+                        "null"
+                    ],
+                    "default": null,
+                    "description": "The path to a PHP >=7.0 executable."
+                }
+            }
+        }
     }
 }

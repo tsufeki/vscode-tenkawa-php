@@ -3,12 +3,13 @@
 import * as net from 'net';
 import * as path from 'path';
 import { spawn } from 'child_process';
-import { ExtensionContext, Disposable } from 'vscode';
+import { ExtensionContext, Disposable, workspace } from 'vscode';
 import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, generateRandomPipeName, StreamInfo } from 'vscode-languageclient';
 
 export function activate(context: ExtensionContext) {
 
-    const phpExecutable = 'php';
+    const config = workspace.getConfiguration('tenkawaphp');
+    const phpExecutable = config.get<string>('executablePath') || 'php';
     const serverExecutable = context.asAbsolutePath(path.join('tenkawa-php-language-server', 'bin', 'tenkawa.php'));
     const memoryLimit = '1024M';
     const logDestination = context.asAbsolutePath('tenkawa-php.log');
