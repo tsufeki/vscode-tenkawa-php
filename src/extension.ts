@@ -14,32 +14,40 @@ export function activate(context: ExtensionContext) {
     const memoryLimit = '1024M';
     const logDestination = context.asAbsolutePath('tenkawa-php.log');
 
-    const serverOptions: ServerOptions = () => new Promise<StreamInfo>((resolve, reject) => {
-        const socketPath = generateRandomPipeName();
-        const server = net.createServer(socket => {
-            server.close();
-            resolve({ reader: socket, writer: socket });
-        });
+    const args = [
+        '-dmemory_limit=' + memoryLimit,
+        serverExecutable,
+        '--log=' + logDestination,
+    ];
 
-        server.listen(socketPath, () => {
-            const childProcess = spawn(
-                phpExecutable,
-                [
-                    '-dmemory_limit=' + memoryLimit,
-                    serverExecutable,
-                    '--socket=' + socketPath,
-                    '--log=' + logDestination,
-                ],
-            );
-
-            childProcess.stderr.on('data', (chunk: Buffer) => {
-                console.error(chunk + '');
+    let serverOptions: ServerOptions;
+    if (process.platform !== 'win32') {
+        serverOptions = {
+            command: phpExecutable,
+            args,
+        };
+    } else {
+        serverOptions = () => new Promise<StreamInfo>((resolve, reject) => {
+            const server = net.createServer(socket => {
+                server.close();
+                resolve({ reader: socket, writer: socket });
             });
-            childProcess.stdout.on('data', (chunk: Buffer) => {
-                console.log(chunk + '');
+
+            server.listen(0, '127.0.0.1', () => {
+                const childProcess = spawn(
+                    phpExecutable,
+                    args.concat([`--socket=tcp://${server.address().address}:${server.address().port}`]),
+                );
+
+                childProcess.stderr.on('data', (chunk: Buffer) => {
+                    console.error(chunk + '');
+                });
+                childProcess.stdout.on('data', (chunk: Buffer) => {
+                    console.error(chunk + '');
+                });
             });
         });
-    });
+    }
 
     const clientOptions: LanguageClientOptions = {
         documentSelector: ['php'],
