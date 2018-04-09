@@ -2,7 +2,7 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.0.9",
+    "version": "0.0.12",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -26,11 +26,12 @@
     ],
     "main": "./out/extension",
     "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "install:composer": "rm -rf tenkawa-php-language-server 2>/dev/null; composer create-project --no-dev --remove-vcs --no-interaction tsufeki/tenkawa-php-language-server tenkawa-php-language-server dev-master",
-        "postinstall": "node ./node_modules/vscode/bin/install"
+        "composer:install": "composer install --no-dev --no-interaction --classmap-authoritative",
+        "composer:update": "composer update --no-dev --no-interaction --classmap-authoritative"
     },
     "dependencies": {
         "vscode-languageclient": "^4.0.0"
