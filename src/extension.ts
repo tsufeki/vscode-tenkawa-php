@@ -50,7 +50,11 @@ export function activate(context: vscode.ExtensionContext) {
             };
 
             childProcess.on('error', error => showError());
-            childProcess.on('exit', (code, signal) => showError());
+            childProcess.on('exit', (code, signal) => {
+                if (signal === null && code === 1) {
+                    showError();
+                }
+            });
         });
     });
 

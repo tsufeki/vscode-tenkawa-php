@@ -2011,12 +2011,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/tenkawa-php-language-server.git",
-                "reference": "db7d0fd4a3870be5f51ea2427aee7af969f53465"
+                "reference": "393ac756e89969ba3d204598c10504bc2a548d29"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/db7d0fd4a3870be5f51ea2427aee7af969f53465",
-                "reference": "db7d0fd4a3870be5f51ea2427aee7af969f53465",
+                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/393ac756e89969ba3d204598c10504bc2a548d29",
+                "reference": "393ac756e89969ba3d204598c10504bc2a548d29",
                 "shasum": ""
             },
             "require": {
@@ -2064,7 +2064,7 @@
                 }
             ],
             "description": "Language server protocol implementation for PHP",
-            "time": "2018-04-09T21:53:56+00:00"
+            "time": "2018-04-10T19:36:36+00:00"
         },
         {
             "name": "webmozart/assert",
