@@ -4,7 +4,15 @@ import * as net from 'net';
 import * as path from 'path';
 import { spawn } from 'child_process';
 import * as vscode from 'vscode';
-import { LanguageClient, LanguageClientOptions, ServerOptions, TransportKind, generateRandomPipeName, StreamInfo } from 'vscode-languageclient';
+import {
+    LanguageClient,
+    LanguageClientOptions,
+    ServerOptions,
+    TransportKind,
+    generateRandomPipeName,
+    StreamInfo,
+    RevealOutputChannelOn,
+} from 'vscode-languageclient';
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -46,7 +54,7 @@ export function activate(context: vscode.ExtensionContext) {
                     'PHP language server could not be started. ' +
                     'Please set "tenkawaphp.executablePath" option to a PHP>=7.0 executable'
                 );
-                showError = () => {};
+                showError = () => { };
             };
 
             childProcess.on('error', error => showError());
@@ -63,6 +71,13 @@ export function activate(context: vscode.ExtensionContext) {
             { scheme: 'file', language: 'php' },
             { scheme: 'untitled', language: 'php' }
         ],
+        initializationOptions: {
+            tenkawaphp: {
+                diagnostics: config.get('diagnostics'),
+                completion: config.get('completion'),
+            },
+        },
+        revealOutputChannelOn: RevealOutputChannelOn.Never,
     };
 
     const client = new LanguageClient('Tenkawa PHP', serverOptions, clientOptions);

@@ -53,7 +53,17 @@
                         "null"
                     ],
                     "default": null,
-                    "description": "The path to a PHP >=7.0 executable."
+                    "description": "The path to a PHP >=7.0 executable. Requires restart."
+                },
+                "tenkawaphp.diagnostics.phpstan.enabled": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable PHPStan diagnostics. Currently requires restart."
+                },
+                "tenkawaphp.completion.autoImport": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Enable automatic import (use) of completed classes. Currently requires restart."
                 }
             }
         }
