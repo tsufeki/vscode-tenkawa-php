@@ -2,18 +2,29 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.0.12",
+    "version": "0.0.13",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/tsufeki/vscode-tenkawa-php.git"
+        "url": "https://github.com/tsufeki/vscode-tenkawa-php.git"
+    },
+    "homepage": "https://github.com/tsufeki/tenkawa-php-language-server",
+    "bugs": {
+        "url": "https://github.com/tsufeki/tenkawa-php-language-server/issues"
     },
     "publisher": "tsufeki",
     "keywords": [
         "php",
         "autocompletion",
+        "static analysis",
+        "refactoring",
         "multi-root ready"
     ],
+    "icon": "images/tenkawa-logo.png",
+    "galleryBanner": {
+        "color": "#EFF1F3",
+        "theme": "light"
+    },
     "engines": {
         "vscode": "^1.19.0"
     },
