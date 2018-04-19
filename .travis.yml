@@ -22,7 +22,7 @@ install:
 script:
     - npm run compile
     - npx vsce package -o "tenkawa-php.vsix"
-    - if [ "$TRAVIS_PULL_REQUEST" != false -a -n "$TRAVIS_TAG"]; then npx vsce publish --pat "$VSTS_TOKEN" --packagePath "tenkawa-php.vsix"; fi
+    - if [ "$TRAVIS_PULL_REQUEST" != false -a -n "$TRAVIS_TAG" ]; then npx vsce publish --pat "$VSTS_TOKEN" --packagePath "tenkawa-php.vsix"; fi
 
 deploy:
     provider: releases
