@@ -22,8 +22,8 @@ suggestions, questions are welcome. Please submit them to the
 Installation
 ------------
 
-PHP >= 7.0 is required. If it isn't available in your `$PATH` as `php`, set
-the `tenkawaphp.executablePath` setting.
+PHP >= 7.0 with pdo_sqlite extension is required. If it isn't available in
+your `$PATH` as `php`, set the `tenkawaphp.executablePath` setting.
 
 Setting `php.suggest.basic` to `false` is recommended, as is leaving
 `php.validate.enable` as `true` (Tenkawa does not report all erroneous code
