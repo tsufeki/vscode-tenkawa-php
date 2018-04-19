@@ -1,0 +1,35 @@
+language: php
+
+php:
+    - '7.0'
+
+env:
+    - secure: "VSTS_TOKEN"
+
+cache:
+    directories:
+        - $HOME/.npm
+        - $HOME/.composer/cache
+
+before_install:
+    - nvm install 8
+    - nvm use 8
+
+install:
+    - npm install
+    - npm run composer:install
+
+script:
+    - npm run compile
+    - npx vsce package -o "tenkawa-php.vsix"
+    - if [ "$TRAVIS_PULL_REQUEST" != false -a -n "$TRAVIS_TAG"]; then npx vsce publish --pat "$VSTS_TOKEN" --packagePath "tenkawa-php.vsix"; fi
+
+
+deploy:
+    provider: releases
+    api_key:
+        secure: "GITHUB_TOKEN"
+    file: "tenkawa-php.vsix"
+    skip_cleanup: true
+    on:
+        tags: true

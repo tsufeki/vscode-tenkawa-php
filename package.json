@@ -41,8 +41,8 @@
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
         "watch": "tsc -watch -p ./",
-        "composer:install": "composer install --no-dev --no-interaction --classmap-authoritative",
-        "composer:update": "composer update --no-dev --no-interaction --classmap-authoritative"
+        "composer:install": "composer install --no-dev --no-interaction --classmap-authoritative --prefer-dist",
+        "composer:update": "composer update --no-dev --no-interaction --classmap-authoritative --prefer-dist"
     },
     "dependencies": {
         "vscode-languageclient": "^4.0.0"
