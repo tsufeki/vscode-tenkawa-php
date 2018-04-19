@@ -4,12 +4,12 @@ php:
     - '7.0'
 
 env:
-    - secure: "VSTS_TOKEN"
+    - secure: B6GtTLJD7JkFTLf6rlUo3PGvgR8dWPUNMTUpTJsrmvCD8/pDvlZjqz+87mcahcbPafblhiZ8cJuc1IIqWexrqrACz9ig/nm0IhFN2kTDiREn4hi5svwyUIaNqe+Yggqj5eV+5v65TlO41KgyvN4R+2BLLzTTsB60tMcK+M0KeMbRrXDPZod4o0jzbKqvtgwdCTLqHTJ0Vvcj9tbw7Lc3HPp9jvGiaqk104h9Nf6P2Pf1L08a7OW4d9/hu1uoqDpO7vlvmNFVwFjvb17j237qe6OK3WdFg7eLrtUgh76tazPdStPf1B+0ep7rGRpr+rlRZeb1jEJt4QFu0gKH/6i8ZT71I1Gs82fgqLqeMu/5DXCLlRXkVKNOpK/TOToNZY/85S8eFw0aJ7Q+ZZ9mrBwj+NNgOOWfta1I48diTdHu8sQHFxaOasz7/jepPb3EywHMJQsk9sW0bTcnmQw00x3PavNH8uM6EBVzaeDPhi/r5GWK/fwdnPOT6q+MfOinmAy+CgOpIhW9gF+DMeh3rXlfyhO4qOfZBTcIiBnZKs+8Fcc/JBCfeknx/MS9MTex39vH8SZ46G1s2S+3MU9712/Hme+TuhgVuhPVH9wZdTgtvg61x82VBHsQt9U1zeUu7waO0eRB59jfPs3BUTyNdgT3bhCkS8KkrEzqxOvO5FGxBIg=
 
 cache:
     directories:
-        - $HOME/.npm
-        - $HOME/.composer/cache
+        - "$HOME/.npm"
+        - "$HOME/.composer/cache"
 
 before_install:
     - nvm install 8
@@ -24,11 +24,10 @@ script:
     - npx vsce package -o "tenkawa-php.vsix"
     - if [ "$TRAVIS_PULL_REQUEST" != false -a -n "$TRAVIS_TAG"]; then npx vsce publish --pat "$VSTS_TOKEN" --packagePath "tenkawa-php.vsix"; fi
 
-
 deploy:
     provider: releases
     api_key:
-        secure: "GITHUB_TOKEN"
+        secure: OPocpvACxKEqqUbTwmVTWWzovgXpbE7UUD/K+I3Kbfq4kBHoZR1brJvBJAjZavW5d8w71fk5ZxlXlAQQB96tXU8ag4W+61q0U2MvQYi0FGWlmw+0K4M2cNVLk7zgPOe7KUtZDiQmfM6v5d+ASdZABjOC+59vAB5o/KzJUIWQCF+8l2GUw2krMIqISZtKPsPr2d4SipSraVs22cvVPv05DuRJdUghPT1Vc0AjGg6kQ1DrTg+8ifXZX5K/xYrXVHvCSyhTszx+4beSZ72vRcxPpiLlNUbe/PEEjr2owjQcDZ2jG+rdu1abuDWRb2fjpGZL5fIRqiWltJ72aoKZf55CrQ2EbxuPXjCJDZPh7m4zr5e7j1V/Lq5tGlYtofwaaciCRlG5gUfYei0qmin6BVcXQGHkhfIM1BtP1RaZcL0z5mGSD1K8ckU4nXS4sDTvnDUzp2ZmI+C23yX0GHxuQ6E5SiTjkd1ESMVX006TgS7dpLRqzSSNhMWG2KuxRhyOEO3Bu7tzTKlhooqjCEar6pU0V3VlTZuIs71Fk8ZnUbZtsby2ARq+oroV/PlkKltCvrx/NUyA8g+35eQT7Qv+MyvBLH8JulusUyWRbYWrgQaEM+sb94ZYw4SgoltO/M8CDt8QEcSCtUqq1RTHRkna2dE5z0yRuTXi5dix1VUPBZlAv/8=
     file: "tenkawa-php.vsix"
     skip_cleanup: true
     on:
