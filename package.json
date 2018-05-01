@@ -48,7 +48,7 @@
         "vscode-languageclient": "^4.0.0"
     },
     "devDependencies": {
-        "@types/node": "^7.0.61",
+        "@types/node": "^8.10.11",
         "typescript": "^2.8.3",
         "vsce": "^1.39.0",
         "vscode": "^1.1.16"
