@@ -45,7 +45,7 @@
         "composer:update": "composer update --no-dev --no-interaction --classmap-authoritative --prefer-dist"
     },
     "dependencies": {
-        "vscode-languageclient": "^4.2.1"
+        "vscode-languageclient": "^4.4.0"
     },
     "devDependencies": {
         "@types/node": "^7.0.66",
