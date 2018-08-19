@@ -8,11 +8,39 @@ import {
     LanguageClient,
     LanguageClientOptions,
     ServerOptions,
-    TransportKind,
-    generateRandomPipeName,
     StreamInfo,
     RevealOutputChannelOn,
 } from 'vscode-languageclient';
+import { ProgressFeature } from './progress';
+
+namespace Errors {
+    const messages = {
+        '': 'Please set "tenkawaphp.executablePath" option to a PHP>=7.1 executable',
+        '1': 'Please set "tenkawaphp.executablePath" option to a PHP>=7.1 executable',
+        '2': 'Required "pdo_sqlite" PHP extension is missing',
+        '3': 'Required "mbstring" PHP extension is missing',
+        '9': 'VS Code extension was not properly installed',
+    };
+
+    let shown = false;
+
+    export function show(code?: number) {
+        if (shown) {
+            return;
+        }
+        shown = true;
+
+        const key = code ? code.toString() : '';
+        const msg = messages[key];
+        if (msg === undefined) {
+            return;
+        }
+
+        vscode.window.showErrorMessage(
+            'PHP language server could not be started. ' + msg
+        );
+    }
+}
 
 export function activate(context: vscode.ExtensionContext) {
 
@@ -49,18 +77,10 @@ export function activate(context: vscode.ExtensionContext) {
                 client.outputChannel.append(chunk + '');
             });
 
-            let showError = () => {
-                vscode.window.showErrorMessage(
-                    'PHP language server could not be started. ' +
-                    'Please set "tenkawaphp.executablePath" option to a PHP>=7.0 executable'
-                );
-                showError = () => { };
-            };
-
-            childProcess.on('error', error => showError());
+            childProcess.on('error', error => Errors.show());
             childProcess.on('exit', (code, signal) => {
-                if (signal === null && code === 1) {
-                    showError();
+                if (signal === null) {
+                    Errors.show(code);
                 }
             });
         });
@@ -80,7 +100,10 @@ export function activate(context: vscode.ExtensionContext) {
         revealOutputChannelOn: RevealOutputChannelOn.Never,
     };
 
-    const client = new LanguageClient('Tenkawa PHP', serverOptions, clientOptions);
-    const disposable = client.start();
+    const client = new LanguageClient('tenkawaphp', 'Tenkawa PHP', serverOptions, clientOptions);
+    let disposable = client.start();
+    context.subscriptions.push(disposable);
+
+    disposable = new ProgressFeature(client).initialize();
     context.subscriptions.push(disposable);
 }
