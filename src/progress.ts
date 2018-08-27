@@ -1,6 +1,6 @@
 import { NotificationType, Disposable } from "vscode-jsonrpc";
 import { LanguageClient } from "vscode-languageclient";
-import { Progress, window, ProgressLocation } from "vscode";
+import { Progress, window, ProgressLocation, commands } from "vscode";
 
 interface ProgressNotificationParams {
     id: string | number;

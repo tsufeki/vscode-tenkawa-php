@@ -12,6 +12,7 @@ import {
     RevealOutputChannelOn,
 } from 'vscode-languageclient';
 import { ProgressFeature } from './progress';
+import { TriggerSignatureHelpAfterCompletionMiddleware } from './completion';
 
 namespace Errors {
     const messages = {
@@ -97,6 +98,7 @@ export function activate(context: vscode.ExtensionContext) {
                 completion: config.get('completion'),
             },
         },
+        middleware: new TriggerSignatureHelpAfterCompletionMiddleware(),
         revealOutputChannelOn: RevealOutputChannelOn.Never,
     };
 
