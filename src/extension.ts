@@ -49,12 +49,13 @@ export function activate(context: vscode.ExtensionContext) {
     const phpExecutable = config.get<string>('executablePath') || 'php';
     const serverExecutable = context.asAbsolutePath(path.join('vendor', 'bin', 'tenkawa.php'));
     const memoryLimit = '1024M';
+    const logLevel = config.get<boolean>('verbose') ? 'debug' : 'info';
 
     const args = [
         '-dmemory_limit=' + memoryLimit,
         serverExecutable,
         '--log-stderr',
-        '--log-level=info',
+        '--log-level=' + logLevel,
     ];
 
     let serverOptions: ServerOptions;

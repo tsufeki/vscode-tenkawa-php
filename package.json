@@ -75,6 +75,11 @@
                     "type": "boolean",
                     "default": true,
                     "description": "Enable automatic import (use) of completed classes. Currently requires restart."
+                },
+                "tenkawaphp.verbose": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Turn on verbose logging."
                 }
             }
         }
