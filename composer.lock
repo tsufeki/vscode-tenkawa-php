@@ -4,20 +4,71 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "7d64e8ff3618e43fc97beaf389bf70ff",
+    "content-hash": "c8f2299ce6ea5d346d6b8a9d79887bd8",
     "packages": [
         {
-            "name": "composer/xdebug-handler",
-            "version": "1.2.0",
+            "name": "cogpowered/finediff",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/composer/xdebug-handler.git",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e"
+                "url": "https://github.com/cogpowered/FineDiff.git",
+                "reference": "339ddc8c3afb656efed4f2f0a80e5c3d026f8ea8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/e1809da56ce1bd1b547a752936817341ac244d8e",
-                "reference": "e1809da56ce1bd1b547a752936817341ac244d8e",
+                "url": "https://api.github.com/repos/cogpowered/FineDiff/zipball/339ddc8c3afb656efed4f2f0a80e5c3d026f8ea8",
+                "reference": "339ddc8c3afb656efed4f2f0a80e5c3d026f8ea8",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "*",
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "cogpowered\\FineDiff": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Rob Crowe",
+                    "email": "rob@cogpowered.com"
+                },
+                {
+                    "name": "Raymond Hill"
+                }
+            ],
+            "description": "PHP implementation of a Fine granularity Diff engine",
+            "homepage": "https://github.com/cogpowered/FineDiff",
+            "keywords": [
+                "diff",
+                "finediff",
+                "opcode",
+                "string",
+                "text"
+            ],
+            "time": "2014-05-19T10:25:02+00:00"
+        },
+        {
+            "name": "composer/xdebug-handler",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/xdebug-handler.git",
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/composer/xdebug-handler/zipball/b8e9745fb9b06ea6664d8872c4505fb16df4611c",
+                "reference": "b8e9745fb9b06ea6664d8872c4505fb16df4611c",
                 "shasum": ""
             },
             "require": {
@@ -48,7 +99,7 @@
                 "Xdebug",
                 "performance"
             ],
-            "time": "2018-08-16T10:54:23+00:00"
+            "time": "2018-08-31T19:07:57+00:00"
         },
         {
             "name": "evenement/evenement",
@@ -629,16 +680,16 @@
         },
         {
             "name": "nette/robot-loader",
-            "version": "v3.0.4",
+            "version": "v3.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/nette/robot-loader.git",
-                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392"
+                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nette/robot-loader/zipball/3cf88781a05e0bf4618ae605361afcbaa4d5b392",
-                "reference": "3cf88781a05e0bf4618ae605361afcbaa4d5b392",
+                "url": "https://api.github.com/repos/nette/robot-loader/zipball/fc76c70e740b10f091e502b2e393d0be912f38d4",
+                "reference": "fc76c70e740b10f091e502b2e393d0be912f38d4",
                 "shasum": ""
             },
             "require": {
@@ -657,7 +708,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "3.0-dev"
+                    "dev-master": "3.1-dev"
                 }
             },
             "autoload": {
@@ -690,7 +741,7 @@
                 "nette",
                 "trait"
             ],
-            "time": "2018-06-22T09:34:04+00:00"
+            "time": "2018-08-13T14:19:06+00:00"
         },
         {
             "name": "nette/utils",
@@ -1593,7 +1644,7 @@
         },
         {
             "name": "symfony/console",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
@@ -1661,7 +1712,7 @@
         },
         {
             "name": "symfony/finder",
-            "version": "v4.1.3",
+            "version": "v4.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/finder.git",
@@ -1814,16 +1865,16 @@
         },
         {
             "name": "tsufeki/hmcontainer",
-            "version": "0.3.2",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/hmcontainer.git",
-                "reference": "a189510c4103a79cda7a1c447c81497dbb1d800c"
+                "reference": "bdaec329f4b49e4e0b388cf0a234bd0bae6d9b2e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/hmcontainer/zipball/a189510c4103a79cda7a1c447c81497dbb1d800c",
-                "reference": "a189510c4103a79cda7a1c447c81497dbb1d800c",
+                "url": "https://api.github.com/repos/tsufeki/hmcontainer/zipball/bdaec329f4b49e4e0b388cf0a234bd0bae6d9b2e",
+                "reference": "bdaec329f4b49e4e0b388cf0a234bd0bae6d9b2e",
                 "shasum": ""
             },
             "require": {
@@ -1855,7 +1906,7 @@
                 }
             ],
             "description": "Hierarchical dependency injection container inspired by Angular",
-            "time": "2017-12-22T22:16:04+00:00"
+            "time": "2018-08-20T08:40:27+00:00"
         },
         {
             "name": "tsufeki/kayo-json-mapper",
@@ -2028,34 +2079,44 @@
         },
         {
             "name": "tsufeki/tenkawa-php-language-server",
-            "version": "dev-master",
+            "version": "0.3.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/tenkawa-php-language-server.git",
-                "reference": "62b41eb9d2b95f8ceffac7883b2badf695612606"
+                "reference": "c2b73f78b7c07d8b8e008f3a3ad585dd60f90fde"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/62b41eb9d2b95f8ceffac7883b2badf695612606",
-                "reference": "62b41eb9d2b95f8ceffac7883b2badf695612606",
+                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/c2b73f78b7c07d8b8e008f3a3ad585dd60f90fde",
+                "reference": "c2b73f78b7c07d8b8e008f3a3ad585dd60f90fde",
                 "shasum": ""
             },
             "require": {
+                "cogpowered/finediff": "^0.3.1",
+                "evenement/evenement": "^3",
                 "ext-mbstring": "*",
                 "ext-pdo": "*",
                 "ext-pdo_sqlite": "*",
                 "jetbrains/phpstorm-stubs": "dev-master",
                 "league/html-to-markdown": "^4",
+                "nikic/php-parser": "^4",
                 "php": ">=7.1",
+                "phpdocumentor/reflection-docblock": "^4",
                 "phpdocumentor/type-resolver": "0.5.0 as 0.4.0",
+                "phpstan/phpdoc-parser": "^0.3",
                 "phpstan/phpstan": "0.10.3",
-                "recoil/react": "^1.0",
+                "psr/log": "^1",
+                "react/event-loop": "^1",
+                "recoil/api": "^1",
+                "recoil/kernel": "^1",
+                "recoil/react": "^1",
                 "tsufeki/blanche-json-rpc": "^0.2",
                 "tsufeki/hmcontainer": "^0.3",
                 "tsufeki/kayo-json-mapper": "^0.3",
                 "tsufeki/php-lenient-parser": "^0.1",
                 "tsufeki/react-filesystem-monitor": "^0.4",
-                "webmozart/glob": "^4"
+                "webmozart/glob": "^4",
+                "webmozart/path-util": "^2"
             },
             "require-dev": {
                 "phpstan/phpstan-phpunit": "^0.10",
@@ -2084,7 +2145,7 @@
                 }
             ],
             "description": "Language server for PHP, with powerful static analysis and type inference",
-            "time": "2018-08-19T21:38:03+00:00"
+            "time": "2018-09-02T13:32:13+00:00"
         },
         {
             "name": "webmozart/assert",
@@ -2240,9 +2301,7 @@
         }
     ],
     "minimum-stability": "dev",
-    "stability-flags": {
-        "tsufeki/tenkawa-php-language-server": 20
-    },
+    "stability-flags": [],
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": [],

@@ -1,6 +1,30 @@
 Changelog
 =========
 
+0.3.0 - 2018-09-02
+------------------
+
+### Removed
+
+* Drop PHP 7.0 support.
+
+### Added
+
+* Signature help.
+* Workspace symbols search.
+* Progress notifications as a custom protocol extension.
+* Add "Fix wrong autoloaded class/namespace name" code action.
+* Class/interface/trait snippets.
+
+### Changed
+
+* Upgrade to PHPStan 0.10, with greatly improved standard library type
+  information. Also allowing us to add support for anonymous classes.
+* Standard library index is now prebuilt, not scanned at startup.
+* Schedule tasks by priorities to improve latency on interactive requests.
+* Hierarchical document symbols.
+* "Go to" and hover point to constructor when in new expressions.
+
 0.2.1 - 2018-07-01
 ------------------
 
