@@ -79,7 +79,7 @@
                 "tenkawaphp.verbose": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Turn on verbose logging."
+                    "description": "Turn on verbose logging. Requires restart."
                 }
             }
         }

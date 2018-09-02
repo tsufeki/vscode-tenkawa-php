@@ -32,13 +32,10 @@ namespace Errors {
         shown = true;
 
         const key = code ? code.toString() : '';
-        const msg = messages[key];
-        if (msg === undefined) {
-            return;
-        }
+        const msg = messages[key] || messages[''];
 
         vscode.window.showErrorMessage(
-            'PHP language server could not be started. ' + msg
+            'PHP language server could not be started or has crashed. ' + msg
         );
     }
 }
