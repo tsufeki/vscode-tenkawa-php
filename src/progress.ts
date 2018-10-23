@@ -4,7 +4,7 @@ import { Progress, window, ProgressLocation, commands } from "vscode";
 
 interface ProgressNotificationParams {
     id: string | number;
-    label: string;
+    label?: string;
     status?: number;
     done?: boolean;
 }
@@ -14,26 +14,46 @@ namespace ProgressNotification {
 }
 
 class ProgressItem {
-    progress?: Progress<{ message?: string }>;
-    resolve?: ({}) => void;
+    private lastMessage: string | undefined;
 
-    set(params: ProgressNotificationParams): void {
-        if (this.progress) {
-            const message = params.label;
+    private constructor(
+        private progress: Progress<{ message?: string }>,
+        private resolve: ({}) => void,
+    ) {}
+
+    static create(): Promise<ProgressItem> {
+        let doneResolver: (v: {}) => void;
+        const donePromise = new Promise<{}>(resolve => doneResolver = resolve);
+
+        const progressPromise = new Promise<ProgressItem['progress']>((resolve) => {
+            window.withProgress({
+                "cancellable": false,
+                "location": ProgressLocation.Notification,
+            }, progress => {
+                resolve(progress);
+                return donePromise;
+            });
+        });
+
+        return progressPromise.then(progress => new ProgressItem(progress, doneResolver));
+    }
+
+    update(params: ProgressNotificationParams): void {
+        const message = params.label;
+        if (message && this.lastMessage !== message) {
+            this.lastMessage = message;
             this.progress.report({ message });
         }
     }
 
     done(): void {
-        if (this.resolve) {
-            this.resolve({});
-        }
+        this.resolve({});
     }
 }
 
 export class ProgressFeature {
 
-    private progressItems = new Map<ProgressNotificationParams['id'], ProgressItem>();
+    private progressItems = new Map<ProgressNotificationParams['id'], Promise<ProgressItem>>();
 
     constructor(private client: LanguageClient) {}
 
@@ -45,34 +65,24 @@ export class ProgressFeature {
         return Disposable.create(() => this.cleanup());
     }
 
+    private getProgressItem(id: ProgressNotificationParams['id']): Promise<ProgressItem> {
+        if (!this.progressItems.has(id)) {
+            this.progressItems.set(id, ProgressItem.create());
+        }
+        return this.progressItems.get(id);
+    }
+
     private onProgressNotification(params: ProgressNotificationParams): void {
-        if (!this.progressItems.has(params.id)) {
-            if (params.done) {
-                return;
-            }
-            const progressItem = new ProgressItem();
-            this.progressItems.set(params.id, progressItem);
-            window.withProgress({
-                "cancellable": false,
-                "location": ProgressLocation.Notification,
-            }, progress => {
-                progressItem.progress = progress;
-                progressItem.set(params);
-                return new Promise<{}>((resolve, reject) => {
-                    progressItem.resolve = resolve;
-                });
-            });
-        } else {
-            const progressItem = this.progressItems.get(params.id);
-            progressItem.set(params);
+        this.getProgressItem(params.id).then(progressItem => {
+            progressItem.update(params);
             if (params.done) {
                 this.progressItems.delete(params.id);
                 progressItem.done();
             }
-        }
+        });
     }
 
     cleanup(): void {
-        this.progressItems.forEach(progressItem => progressItem.done());
+        this.progressItems.forEach(progressItem => progressItem.then(p => p.done()));
     }
 }
