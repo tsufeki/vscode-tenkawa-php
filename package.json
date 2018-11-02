@@ -2,7 +2,7 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.3.2",
+    "version": "0.3.3",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -50,7 +50,7 @@
     "devDependencies": {
         "@types/node": "^7.10.1",
         "typescript": "^3.1.6",
-        "vsce": "^1.52.0",
+        "vsce": "^1.53.0",
         "vscode": "^1.1.21"
     },
     "contributes": {

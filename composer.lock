@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "2b1bdce101f1968918c2b8f2f9bd541b",
+    "content-hash": "5f9a51917b53f0bd3fba8740bbec02aa",
     "packages": [
         {
             "name": "cogpowered/finediff",
@@ -2079,16 +2079,16 @@
         },
         {
             "name": "tsufeki/tenkawa-php-language-server",
-            "version": "0.3.2",
+            "version": "0.3.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/tenkawa-php-language-server.git",
-                "reference": "33f582083f577c3f262049b9b85b54f822f986dc"
+                "reference": "8e01ce8eb9b975c5b8c3e3a82dacccca40c64561"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/33f582083f577c3f262049b9b85b54f822f986dc",
-                "reference": "33f582083f577c3f262049b9b85b54f822f986dc",
+                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/8e01ce8eb9b975c5b8c3e3a82dacccca40c64561",
+                "reference": "8e01ce8eb9b975c5b8c3e3a82dacccca40c64561",
                 "shasum": ""
             },
             "require": {
@@ -2145,7 +2145,7 @@
                 }
             ],
             "description": "Language server for PHP, with powerful static analysis and type inference",
-            "time": "2018-11-01T22:53:20+00:00"
+            "time": "2018-11-02T18:59:34+00:00"
         },
         {
             "name": "webmozart/assert",
