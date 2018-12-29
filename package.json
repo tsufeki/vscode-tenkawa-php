@@ -51,7 +51,7 @@
         "@types/node": "^7.10.1",
         "typescript": "^3.2.2",
         "vsce": "^1.54.0",
-        "vscode": "^1.1.21"
+        "vscode": "^1.1.26"
     },
     "contributes": {
         "configuration": {
