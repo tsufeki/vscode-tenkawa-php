@@ -1,6 +1,43 @@
 Changelog
 =========
 
+0.4.0 - UNRELEASED
+------------------
+
+### Added
+
+* Type information extensions for:
+  * Symfony
+  * Doctrine
+  * PHPUnit
+  * Phony
+  * Prophecy
+  * Mockery
+  * webmozart/assert
+  * beberlei/assert
+* Go to implementation.
+* Go to class member's parent.
+* Request cancellation.
+* Dynamic configuration (restart is no longer required).
+* Support `LocationLink`s - better highlighting in Peek definition/Go to
+  implementation.
+* Enabled some of missing phpstan rules.
+
+### Changed
+
+* Completions, go to (and other features) for union type now include members
+  from all alternatives.
+* Only use most common PHP extensions for autocompletion. Add configuration
+  option to enable more.
+* Filter autocompletion of classes and functions server-side for performance.
+* Improve performance by not inferring types of whole file when possible.
+
+### Fixed
+
+* Member completions are deduplicated.
+* Make `completion.autoImport` configuration key work again.
+* Fix bug with completions being based on old document content.
+
 0.3.3 - 2018-11-02
 ------------------
 

@@ -2,7 +2,7 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.3.3",
+    "version": "0.4.0",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -48,7 +48,7 @@
         "vscode-languageclient": "^5.2.1"
     },
     "devDependencies": {
-        "@types/node": "^7.10.1",
+        "@types/node": "^8.9.3",
         "typescript": "^3.2.2",
         "vsce": "^1.54.0",
         "vscode": "^1.1.26"
@@ -64,22 +64,42 @@
                         "null"
                     ],
                     "default": null,
-                    "description": "The path to a PHP >=7.0 executable. Requires restart."
+                    "description": "Path to PHP >= 7.0 executable. Requires restart.",
+                    "scope": "application"
                 },
                 "tenkawaphp.diagnostics.phpstan.enabled": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enable PHPStan diagnostics. Currently requires restart."
+                    "description": "Enable PHPStan diagnostics.",
+                    "scope": "resource"
                 },
                 "tenkawaphp.completion.autoImport": {
                     "type": "boolean",
                     "default": true,
-                    "description": "Enable automatic import (use) of completed classes. Currently requires restart."
+                    "description": "Enable automatic import (use) of completed classes.",
+                    "scope": "resource"
+                },
+                "tenkawaphp.completion.extensions": {
+                    "oneOf": [
+                        {
+                            "type": "null"
+                        },
+                        {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    ],
+                    "default": null,
+                    "description": "By default, only some PHP extensions are used for autocompletion. Additional ones can be enabled here.",
+                    "scope": "resource"
                 },
                 "tenkawaphp.verbose": {
                     "type": "boolean",
                     "default": false,
-                    "description": "Turn on verbose logging. Requires restart."
+                    "description": "Turn on verbose logging. Requires restart.",
+                    "scope": "application"
                 }
             }
         }

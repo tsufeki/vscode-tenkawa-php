@@ -16,8 +16,8 @@ import { TriggerSignatureHelpAfterCompletionMiddleware } from './completion';
 
 namespace Errors {
     const messages = {
-        '': 'Please set "tenkawaphp.executablePath" option to a PHP>=7.1 executable',
-        '1': 'Please set "tenkawaphp.executablePath" option to a PHP>=7.1 executable',
+        '': 'Please set "tenkawaphp.executablePath" option to PHP >= 7.1 executable',
+        '1': 'Please set "tenkawaphp.executablePath" option to PHP >= 7.1 executable',
         '2': 'Required "pdo_sqlite" PHP extension is missing',
         '3': 'Required "mbstring" PHP extension is missing',
         '9': 'VS Code extension was not properly installed',

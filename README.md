@@ -40,6 +40,7 @@ Features
   * ✔ Static analysis with [PHPStan][phpstan]
       (see [Known issues](#known-issues))
 * ✔ Go to definition
+* ✔ Go to implementation
 * ✔ Hover info
 * ✔ Signature help
 * ✔ References
@@ -54,10 +55,10 @@ Features
 * ✔ Multi-root workspace
 * ✔ Snippets
   * ✔ Class/interface/trait
+* ✔ Dynamic configuration
 
 Unimplemented (yet?):
 
-* ✘ Go to implementation
 * ✘ Go to type definition
 * ✘ Document highlight
 * ✘ Code lens
@@ -66,15 +67,12 @@ Unimplemented (yet?):
   * ✘ range
   * ✘ on type
 * ✘ Rename
-* ✘ Dynamic configuration
 
 Known issues
 ------------
 
 * Many features don't work inside traits. This is caused by PHPStan's design.
 * Refactors are not 100% bullet-proof.
-* Filtering of big lists (i.e. completions) is left entirely to the client,
-  which must be able to withstand it performance-wise.
 * Performance & long indexing times.
 
 Licence
