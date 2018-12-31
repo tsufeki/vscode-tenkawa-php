@@ -3662,28 +3662,27 @@
         },
         {
             "name": "tsufeki/kayo-json-mapper",
-            "version": "0.3.4",
+            "version": "0.3.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/kayo-json-mapper.git",
-                "reference": "64035796b66c219c8bf2a6deb7840278020a622b"
+                "reference": "e1ef374883fb97ebc7c2c4e0a6699b89e0ab6c01"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/kayo-json-mapper/zipball/64035796b66c219c8bf2a6deb7840278020a622b",
-                "reference": "64035796b66c219c8bf2a6deb7840278020a622b",
+                "url": "https://api.github.com/repos/tsufeki/kayo-json-mapper/zipball/e1ef374883fb97ebc7c2c4e0a6699b89e0ab6c01",
+                "reference": "e1ef374883fb97ebc7c2c4e0a6699b89e0ab6c01",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0",
+                "php": ">=7.1",
                 "phpdocumentor/reflection-docblock": "^4.3",
                 "phpdocumentor/type-resolver": "^0.5 || ^0.4"
             },
             "require-dev": {
-                "php-coveralls/php-coveralls": "^2.0",
-                "phpstan/phpstan": "^0.9",
-                "phpstan/phpstan-phpunit": "^0.9",
-                "phpunit/phpunit": "^6.4"
+                "phpstan/phpstan": "^0.10",
+                "phpstan/phpstan-phpunit": "^0.10",
+                "phpunit/phpunit": "^7"
             },
             "type": "library",
             "autoload": {
@@ -3702,7 +3701,7 @@
                 }
             ],
             "description": "Map JSON data to PHP objects",
-            "time": "2018-08-17T23:15:44+00:00"
+            "time": "2018-12-30T20:16:01+00:00"
         },
         {
             "name": "tsufeki/php-lenient-parser",
@@ -3831,16 +3830,16 @@
         },
         {
             "name": "tsufeki/tenkawa-php-language-server",
-            "version": "0.4.0",
+            "version": "0.4.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/tenkawa-php-language-server.git",
-                "reference": "9614e43ec724615b1422360a119bbd9e647de9c4"
+                "reference": "7a40652cc79032a5b9ac0b3ae3a6aa701a26feae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/9614e43ec724615b1422360a119bbd9e647de9c4",
-                "reference": "9614e43ec724615b1422360a119bbd9e647de9c4",
+                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/7a40652cc79032a5b9ac0b3ae3a6aa701a26feae",
+                "reference": "7a40652cc79032a5b9ac0b3ae3a6aa701a26feae",
                 "shasum": ""
             },
             "require": {
@@ -3904,7 +3903,7 @@
                 }
             ],
             "description": "Language server for PHP, with powerful static analysis and type inference",
-            "time": "2018-12-30T16:51:05+00:00"
+            "time": "2018-12-30T20:58:42+00:00"
         },
         {
             "name": "webmozart/assert",
