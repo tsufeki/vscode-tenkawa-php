@@ -100,6 +100,7 @@ export function activate(context: vscode.ExtensionContext) {
             tenkawaphp: {
                 diagnostics: config.get('diagnostics'),
                 completion: config.get('completion'),
+                index: config.get('index'),
             },
         },
         middleware: new TriggerSignatureHelpAfterCompletionMiddleware(),
