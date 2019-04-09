@@ -12,6 +12,7 @@ cache:
         - "$HOME/.composer/cache"
 
 before_install:
+    - phpenv config-rm xdebug.ini
     - nvm install 8
     - nvm use 8
 

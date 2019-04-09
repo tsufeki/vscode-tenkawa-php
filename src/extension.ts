@@ -15,7 +15,7 @@ import { ProgressFeature } from './progress';
 import { TriggerSignatureHelpAfterCompletionMiddleware } from './completion';
 
 namespace Errors {
-    const messages = {
+    const messages: { [key: string]: string | undefined } = {
         '': 'Please set "tenkawaphp.executablePath" option to PHP >= 7.1 executable',
         '1': 'Please set "tenkawaphp.executablePath" option to PHP >= 7.1 executable',
         '2': 'Required "pdo_sqlite" PHP extension is missing',
@@ -25,7 +25,7 @@ namespace Errors {
 
     let shown = false;
 
-    export function show(code?: number) {
+    export function show(code?: number | null) {
         if (shown) {
             return;
         }
@@ -55,6 +55,10 @@ export function activate(context: vscode.ExtensionContext) {
         '--log-level=' + logLevel,
     ];
 
+    const env = {
+        XDG_CACHE_HOME: context.globalStoragePath,
+    };
+
     let serverOptions: ServerOptions;
     serverOptions = () => new Promise<StreamInfo>((resolve, reject) => {
         const server = net.createServer(socket => {
@@ -63,9 +67,11 @@ export function activate(context: vscode.ExtensionContext) {
         });
 
         server.listen(0, '127.0.0.1', () => {
+            const { address, port } = server.address() as net.AddressInfo;
             const childProcess = spawn(
                 phpExecutable,
-                args.concat([`--socket=tcp://${server.address().address}:${server.address().port}`]),
+                args.concat([`--socket=tcp://${address}:${port}`]),
+                { env },
             );
 
             childProcess.stderr.on('data', chunk => {

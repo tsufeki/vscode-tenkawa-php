@@ -26,7 +26,7 @@
         "theme": "light"
     },
     "engines": {
-        "vscode": "^1.30.0"
+        "vscode": "^1.33.0"
     },
     "categories": [
         "Languages"
@@ -48,10 +48,10 @@
         "vscode-languageclient": "^5.2.1"
     },
     "devDependencies": {
-        "@types/node": "^8.9.3",
-        "typescript": "^3.2.4",
-        "vsce": "^1.54.0",
-        "vscode": "^1.1.27"
+        "@types/node": "^10.14.4",
+        "typescript": "^3.4.2",
+        "vsce": "^1.59.0",
+        "vscode": "^1.1.33"
     },
     "contributes": {
         "configuration": {

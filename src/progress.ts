@@ -42,8 +42,12 @@ class ProgressItem {
         const message = params.label;
         if (message && this.lastMessage !== message) {
             this.lastMessage = message;
-            this.progress.report({ message });
+            this.progress.report(this.format(message));
         }
+    }
+
+    private format(message: string): { message?: string } {
+        return { message: `[php] ${message}` };
     }
 
     done(): void {
@@ -66,10 +70,12 @@ export class ProgressFeature {
     }
 
     private getProgressItem(id: ProgressNotificationParams['id']): Promise<ProgressItem> {
-        if (!this.progressItems.has(id)) {
-            this.progressItems.set(id, ProgressItem.create());
+        let item = this.progressItems.get(id);
+        if (item === undefined) {
+            item = ProgressItem.create();
+            this.progressItems.set(id, item);
         }
-        return this.progressItems.get(id);
+        return item;
     }
 
     private onProgressNotification(params: ProgressNotificationParams): void {

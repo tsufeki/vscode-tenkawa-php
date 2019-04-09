@@ -23,16 +23,18 @@ export class TriggerSignatureHelpAfterCompletionMiddleware implements Middleware
             .then(TriggerSignatureHelpAfterCompletionMiddleware.addCommands);
     }
 
-    private static addCommands(completionList: VCompletionItem[] | VCompletionList) {
-        const items = completionList instanceof Array ? completionList : completionList.items;
-        items.forEach(item => {
-            if (typeof item.insertText === 'string' && item.insertText.endsWith('(')) {
-                item.command = {
-                    command: 'editor.action.triggerParameterHints',
-                    title: 'signature help',
-                };
-            }
-        });
+    private static addCommands(completionList: VCompletionItem[] | VCompletionList | null | undefined) {
+        if (completionList !== null && completionList !== undefined) {
+            const items = completionList instanceof Array ? completionList : completionList.items;
+            items.forEach(item => {
+                if (typeof item.insertText === 'string' && item.insertText.endsWith('(')) {
+                    item.command = {
+                        command: 'editor.action.triggerParameterHints',
+                        title: 'signature help',
+                    };
+                }
+            });
+        }
 
         return completionList;
     }
