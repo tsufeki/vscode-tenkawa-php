@@ -2,7 +2,7 @@
     "name": "tenkawa-php",
     "displayName": "Tenkawa PHP",
     "description": "Autocompletion for PHP",
-    "version": "0.4.0",
+    "version": "0.4.2",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -26,7 +26,7 @@
         "theme": "light"
     },
     "engines": {
-        "vscode": "^1.33.0"
+        "vscode": "^1.34.0"
     },
     "categories": [
         "Languages"
@@ -48,10 +48,10 @@
         "vscode-languageclient": "^5.2.1"
     },
     "devDependencies": {
-        "@types/node": "^10.14.4",
-        "typescript": "^3.4.2",
-        "vsce": "^1.59.0",
-        "vscode": "^1.1.33"
+        "@types/node": "^10",
+        "typescript": "3.5.*",
+        "vsce": "^1.62.0",
+        "vscode": "^1.1.34"
     },
     "contributes": {
         "configuration": {
