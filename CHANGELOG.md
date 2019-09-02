@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.4.3 - 2019-09-02
+------------------
+
+### Fixed
+
+* Pass environment variables to the server process.
+
 0.4.2 - 2019-05-04
 ------------------
 
