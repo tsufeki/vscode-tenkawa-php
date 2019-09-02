@@ -71,7 +71,7 @@ export function activate(context: vscode.ExtensionContext) {
             const childProcess = spawn(
                 phpExecutable,
                 args.concat([`--socket=tcp://${address}:${port}`]),
-                { env },
+                { env: { ...process.env, ...env } },
             );
 
             childProcess.stderr.on('data', chunk => {
