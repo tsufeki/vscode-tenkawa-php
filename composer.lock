@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e125ce7f1512ae934ac10b57dc97019e",
+    "content-hash": "25b4ab6cd9fb5a5bfffa139b2b2319d5",
     "packages": [
         {
             "name": "cogpowered/finediff",
@@ -362,12 +362,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "74512d26852d113b1c484dcd87b4ef9bb4a7ec3b"
+                "reference": "cccf793a5c3778688666494d4b09ffb4510a2160"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/74512d26852d113b1c484dcd87b4ef9bb4a7ec3b",
-                "reference": "74512d26852d113b1c484dcd87b4ef9bb4a7ec3b",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/cccf793a5c3778688666494d4b09ffb4510a2160",
+                "reference": "cccf793a5c3778688666494d4b09ffb4510a2160",
                 "shasum": ""
             },
             "require-dev": {
@@ -398,7 +398,7 @@
                 "stubs",
                 "type"
             ],
-            "time": "2019-09-02T12:20:09+00:00"
+            "time": "2019-09-03T12:14:46+00:00"
         },
         {
             "name": "league/html-to-markdown",
@@ -2740,16 +2740,16 @@
         },
         {
             "name": "tsufeki/tenkawa-php-language-server",
-            "version": "0.4.2",
+            "version": "0.4.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tsufeki/tenkawa-php-language-server.git",
-                "reference": "91b26f536fcebfd2c5ee37ad4a623bd87c17e4d4"
+                "reference": "893c86792859b5c52674e595b8c9d10a91e84589"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/91b26f536fcebfd2c5ee37ad4a623bd87c17e4d4",
-                "reference": "91b26f536fcebfd2c5ee37ad4a623bd87c17e4d4",
+                "url": "https://api.github.com/repos/tsufeki/tenkawa-php-language-server/zipball/893c86792859b5c52674e595b8c9d10a91e84589",
+                "reference": "893c86792859b5c52674e595b8c9d10a91e84589",
                 "shasum": ""
             },
             "require": {
@@ -2814,7 +2814,7 @@
                 }
             ],
             "description": "Language server for PHP, with powerful static analysis and type inference",
-            "time": "2019-06-04T10:20:57+00:00"
+            "time": "2019-09-05T16:40:49+00:00"
         },
         {
             "name": "webmozart/assert",
