@@ -1,6 +1,13 @@
 Changelog
 =========
 
+0.4.5 - 2019-12-03
+------------------
+
+### Fixed
+
+* Deprecation error on PHP 7.4. Note that 7.4 features are not supported yet.
+
 0.4.4 - 2019-09-05
 ------------------
 
