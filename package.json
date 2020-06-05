@@ -50,7 +50,7 @@
     "devDependencies": {
         "@types/node": "^10.14.17",
         "typescript": "^3.5.3",
-        "vsce": "^1.66.0",
+        "vsce": "^1.76.0",
         "vscode": "^1.1.36"
     },
     "contributes": {
